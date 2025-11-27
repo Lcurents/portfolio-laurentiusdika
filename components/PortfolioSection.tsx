@@ -50,10 +50,14 @@ export default function PortfolioSection() {
                 <div 
                   className={`bg-white dark:bg-slate-900 rounded-xl border-2 border-gray-100 dark:border-slate-800 overflow-hidden h-full flex flex-col transition-all duration-300 shadow-sm group-hover:shadow-game dark:group-hover:shadow-yellow-500/20`}
                 >
-                  {/* Thumbnail Placeholder */}
-                  <div className={`h-48 w-full bg-gray-200 dark:bg-slate-800 flex items-center justify-center text-gray-400 group-hover:scale-105 transition-transform duration-500`}>
-                     <span>Image Placeholder</span>
-                  </div>
+                  {/* Thumbnail Image Asli */}
+                <div className="h-48 w-full overflow-hidden bg-gray-200 dark:bg-slate-800">
+                  <img 
+                    src={project.image} 
+                    alt={project.title} 
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
                   
                   <div className="p-5 flex flex-col flex-grow">
                      {/* Badge Kategori */}

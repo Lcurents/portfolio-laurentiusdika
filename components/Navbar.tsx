@@ -55,7 +55,7 @@ export default function Navbar() {
                      </div>
                      <div>
                         <div className="font-bold text-brand-dark dark:text-white text-sm">Art Skills</div>
-                        <div className="text-xs text-gray-500 dark:text-gray-400">Pixel & Anime Art</div>
+                        <div className="text-xs text-gray-500 dark:text-gray-400">Pixel Art & 2D Illustration</div>
                      </div>
                   </Link>
 

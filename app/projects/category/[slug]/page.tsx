@@ -67,7 +67,8 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
                         <div className="bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border-2 border-gray-100 dark:border-slate-800 hover:border-brand-primary dark:hover:border-yellow-400 hover:-translate-y-2 transition-all duration-300 shadow-sm hover:shadow-xl">
                             {/* Gambar Dummy */}
                             <div className="h-48 bg-gray-200 dark:bg-slate-800 flex items-center justify-center text-gray-400">
-                                <span>Project Thumbnail</span>
+                                <img src={project.image} 
+                    alt={project.title}  />
                             </div>
                             
                             <div className="p-6">

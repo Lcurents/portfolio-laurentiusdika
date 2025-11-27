@@ -53,11 +53,14 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
                </h1>
 
                {/* Gambar Utama (Mockup) */}
-               <div className="aspect-video bg-gray-100 rounded-2xl overflow-hidden mb-8 flex items-center justify-center text-gray-400 relative border-2 border-gray-100">
-                  {/* Ganti ini dengan <Image> nanti */}
-                  {/* <img src={project.image} alt={project.title} className="object-cover w-full h-full" /> */}
-                  <span className="font-bold text-xl">Preview Image Placeholder</span>
-               </div>
+               {/* Gambar Utama (Detail) */}
+<div className="aspect-video bg-gray-100 rounded-2xl overflow-hidden mb-8 shadow-md border-2 border-gray-100 dark:border-slate-700">
+   <img 
+     src={project.image} 
+     alt={project.title} 
+     className="object-cover w-full h-full" 
+   />
+</div>
 
                <div className="grid md:grid-cols-3 gap-10">
                  
