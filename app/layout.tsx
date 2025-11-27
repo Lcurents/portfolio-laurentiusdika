@@ -13,7 +13,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "My Gamified Portfolio",
+  title: "Laurentius Dika - Portfolio",
   description: "Leveling up my coding skills!",
 };
 
