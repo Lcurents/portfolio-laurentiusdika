@@ -22,7 +22,7 @@ export default function Navbar() {
           <div className="w-8 h-8 bg-brand-primary dark:bg-yellow-500 rounded-lg border-2 border-brand-dark dark:border-yellow-600 flex items-center justify-center group-hover:rotate-12 transition-transform">
             👾
           </div>
-          <span>YOUR<span className="text-brand-primary dark:text-yellow-400">NAME</span></span>
+          <span>Laurentius<span className="text-brand-primary dark:text-yellow-400"> Dika</span> Andreano Vega</span>
         </Link>
 
         {/* Desktop Menu */}

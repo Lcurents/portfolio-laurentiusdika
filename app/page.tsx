@@ -7,6 +7,7 @@ import ContactForm from '@/components/ContactForm';
 import Reveal from '@/components/Reveal';
 import WaveDivider from '@/components/WaveDivider';
 import HeroTypewriter from '@/components/HeroTypewriter';
+import TiltCard from '@/components/TiltCard';
 
 export default function Home() {
   const recentPosts = getSortedPostsData();
@@ -52,9 +53,16 @@ export default function Home() {
       <section id="about" className="py-24 bg-white dark:bg-slate-800 relative transition-colors duration-200">
         <div className="container mx-auto px-6 grid md:grid-cols-2 gap-10 items-center relative z-10">
             <Reveal direction="right" width="100%">
-                <div className="aspect-square bg-brand-yellow dark:bg-yellow-600 rounded-3xl flex items-center justify-center text-4xl font-bold shadow-game dark:shadow-yellow-500/30 overflow-hidden border-4 border-brand-dark dark:border-yellow-400 transform -rotate-2 hover:rotate-0 transition-all">
-                    <span className="text-brand-dark dark:text-slate-900">[FOTO]</span>
-                </div>
+                <TiltCard className="h-full">
+                <div className="aspect-square bg-brand-yellow dark:bg-yellow-600 rounded-3xl flex items-center justify-center shadow-game dark:shadow-yellow-500/30 overflow-hidden border-4 border-brand-dark dark:border-yellow-400 transform -rotate-2 hover:rotate-0 transition-all">
+    {/* GANTI DENGAN IMG */}
+    {/* Pastikan nama file sesuai dengan yang anda taruh di folder public/images */}
+    <img 
+      src="/images/dika.webp" 
+      alt="Foto Profil Saya" 
+      className="w-full h-full object-cover"
+    />
+</div></TiltCard>
             </Reveal>
 
             <Reveal direction="left" delay={0.2}>

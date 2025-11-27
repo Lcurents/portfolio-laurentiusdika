@@ -7,7 +7,7 @@ export default function HeroTypewriter() {
       <Typewriter
         options={{
           strings: [
-            "Hi, I'm [Your Name].", 
+            "Hi, I'm Dika.", 
             "I craft colorful digital experiences.",
             "I build interactive game mechanics.",
             "I combine Pixel Art with Clean Code."
