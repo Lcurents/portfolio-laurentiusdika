@@ -43,6 +43,8 @@ export default function NeuralNetwork({ data }: { data: GraphData }) {
         
         // --- CONFIGURATION ---
         backgroundColor="transparent"
+
+        // @ts-ignore
         enableZoom={false} 
         
         // --- STYLING NODE (LINGKARAN) ---
