@@ -57,6 +57,8 @@ export default function Reveal({
         variants={variants}
         initial="hidden"
         animate={mainControls}
+        // TAMBAHKAN CLASS INI:
+        className="h-full w-full" 
       >
         {children}
       </motion.div>
