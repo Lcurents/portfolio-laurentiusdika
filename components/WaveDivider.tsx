@@ -14,7 +14,7 @@ export default function WaveDivider({
 }: Props) {
   
   const rotation = position === "top" ? "rotate(0deg)" : "rotate(180deg)";
-  const mirroring = flip ? "scaleX(-1)" : "scaleX(1)";
+  const mirroring = flip ? "scaleX(1)" : "scaleX(-1)";
   const transform = `${rotation} ${mirroring}`;
 
   return (

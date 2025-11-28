@@ -18,7 +18,7 @@ export default function Home() {
       <Navbar />
 
       {/* SECTION 1: HERO */}
-      <section id="hero" className="relative h-screen flex items-center justify-center pt-16 overflow-hidden bg-yellow-50 dark:bg-slate-900 bg-dots transition-colors duration-200">
+      <section id="hero" className="relative h-screen flex items-center justify-center pt-16 overflow-hidden bg-blue-200 dark:bg-blue-400 bg-dots transition-colors duration-200">
         <div className="text-center px-6 flex flex-col items-center relative z-10">
           
           <Reveal direction="down">
@@ -45,7 +45,7 @@ export default function Home() {
           position="bottom" 
           shape="curve" 
           flip={true} 
-          className="text-white dark:text-slate-800"
+          className="text-white dark:text-slate-800 transition-colors duration-120"
         />
       </section>
 
@@ -100,6 +100,7 @@ export default function Home() {
       </section>
 
       {/* SECTION 3: SKILLS */}
+      
       <div className="bg-slate-800 dark:bg-slate-950 pb-20 pt-10 relative transition-colors duration-200">
         <Reveal width="100%" direction="up">
             <div className="py-10">
@@ -116,8 +117,8 @@ export default function Home() {
   // Warna ombak harus sama dengan warna background section 'Portfolio'
   className="text-white dark:text-slate-800"
 />
-      </div>
 
+      </div>
       {/* SECTION 4: PORTFOLIO */}
       <section className="py-32 bg-white dark:bg-slate-800 bg-grid-pattern relative transition-colors duration-200">
         <div className="container mx-auto px-6">
@@ -137,13 +138,20 @@ export default function Home() {
   shape="waves" 
   flip={true}
   // Warna ombak harus sama dengan background 'DevBlog'
-  className="text-slate-50 dark:text-slate-800"
+  className="text-slate-50 transition-colors duration-200 dark:text-slate-800"
 />
       </section>
 
       {/* SECTION 5: DEVBLOG */}
-      <section id="devblog" className="py-32 bg-slate-50 dark:bg-slate-800 relative transition-colors duration-200">
-        <div className="container mx-auto px-6">
+      <section id="devblog" className="py-32 bg-blue-200 dark:bg-slate-900 relative transition-colors duration-200">
+        <WaveDivider 
+  position="top" 
+  shape="waves" 
+  flip={true}
+  // Warna ombak harus sama dengan background 'DevBlog'
+  className="text-slate-50 bg-blue-200 dark:bg-slate-900 dark:text-slate-800 transition-colors duration-200"
+/>
+        <div className="container mx-auto px-6 ">
           <div className="flex justify-between items-end mb-12">
             <div>
                 <h2 className="text-4xl font-extrabold text-brand-dark dark:text-brand-light dark:text-white">DevBlog</h2>
@@ -182,7 +190,7 @@ export default function Home() {
   shape="waves" 
   flip={true}
   // Warna ombak harus sama dengan background 'Contact'
-  className="text-brand-dark dark:text-slate-950"
+  className="text-brand-dark transition-colors duration-200 dark:text-slate-950"
 />
       </section>
 

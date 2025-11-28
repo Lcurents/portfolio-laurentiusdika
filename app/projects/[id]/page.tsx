@@ -25,20 +25,20 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
   }
 
   return (
-    <main className="bg-brand-light min-h-screen font-sans">
+    <main className="bg-blue-100 dark:bg-slate-900 min-h-screen font-sans">
       <Navbar />
       
       <article className="pt-24 pb-20 px-6">
         <div className="container mx-auto max-w-4xl">
           
           {/* Tombol Kembali */}
-          <Link href="/#portfolio" className="inline-flex items-center gap-2 text-gray-500 hover:text-brand-primary mb-8 font-bold transition-colors">
+          <Link href="/#portfolio" className="inline-flex items-center gap-2 text-slate-700 dark:text-slate-200 hover:text-brand-primary mb-8 font-bold transition-colors">
             <ArrowLeft size={20} /> Back to Quest Board
           </Link>
 
           {/* Header Project */}
           <FadeIn direction="up">
-            <div className="bg-white rounded-3xl p-8 md:p-12 border-b-8 border-gray-200 shadow-game mb-10 overflow-hidden relative">
+            <div className="bg-white rounded-3xl p-8 md:p-12 border-b-8 border-gray-400 dark:border-yellow-500 shadow-game mb-10 overflow-hidden relative">
                
                {/* Badge Kategori */}
                <span 
@@ -48,7 +48,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
                  {project.category}
                </span>
 
-               <h1 className="text-4xl md:text-6xl font-extrabold text-brand-dark mb-6">
+               <h1 className="text-4xl md:text-6xl font-extrabold text-brand-dark dark:text-slate-800 mb-6">
                  {project.title}
                </h1>
 
@@ -66,7 +66,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
                  
                  {/* Kolom Kiri: Deskripsi */}
                  <div className="md:col-span-2 space-y-6">
-                    <h3 className="text-2xl font-bold text-brand-dark">Overview</h3>
+                    <h3 className="text-2xl font-bold text-brand-dark dark:text-slate-900">Overview</h3>
                     <p className="text-gray-600 leading-relaxed text-lg">
                       {project.description_long}
                     </p>
@@ -82,13 +82,13 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
 
                  {/* Kolom Kanan: Actions (Tombol) */}
                  <div className="space-y-4">
-                    <h3 className="text-2xl font-bold text-brand-dark mb-4">Actions</h3>
+                    <h3 className="text-2xl font-bold text-brand-dark mb-4 dark:text-slate-900">Actions</h3>
                     
                     {project.demo_url && (
                       <a 
                         href={project.demo_url} 
                         target="_blank"
-                        className="flex items-center justify-center gap-2 w-full bg-brand-primary text-brand-dark font-bold py-4 rounded-xl border-b-4 border-yellow-600 active:border-b-0 active:translate-y-1 hover:brightness-110 transition-all"
+                        className="flex items-center justify-center gap-2 w-full bg-brand-primary dark:text-slate-900 text-brand-dark font-bold py-4 rounded-xl border-b-4 border-yellow-600 active:border-b-0 active:translate-y-1 hover:brightness-110 transition-all"
                       >
                         <ExternalLink size={20} />
                         Play / Live Demo
@@ -99,7 +99,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
                       <a 
                         href={project.repo_url} 
                         target="_blank"
-                        className="flex items-center justify-center gap-2 w-full bg-brand-dark text-white font-bold py-4 rounded-xl border-b-4 border-gray-900 active:border-b-0 active:translate-y-1 hover:bg-gray-700 transition-all"
+                        className="flex items-center justify-center gap-2 w-full bg-brand-dark dark:bg-slate-900 text-white font-bold py-4 rounded-xl border-b-4 border-gray-900 active:border-b-0 active:translate-y-1 hover:bg-gray-700 transition-all"
                       >
                         <Github size={20} />
                         Source Code

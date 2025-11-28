@@ -42,7 +42,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
       <Navbar />
       
       {/* 3. HEADER HERO (Hiasan Utama) */}
-      <header className="relative pt-32 pb-20 px-6 text-center bg-yellow-50 dark:bg-slate-900 bg-dots overflow-hidden">
+      <header className="relative pt-32 pb-20 px-6 text-center bg-blue-200 dark:bg-slate-900 bg-dots overflow-hidden">
          <div className="relative z-10 max-w-3xl mx-auto flex flex-col items-center">
             
             {/* Tombol Kembali */}
@@ -57,7 +57,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
             </Link>
 
             {/* Tanggal */}
-            <div className="flex items-center gap-2 text-sm font-bold text-brand-primary dark:text-yellow-400 mb-4 uppercase tracking-widest bg-white dark:bg-slate-800 px-4 py-1 rounded-full shadow-sm border border-gray-100 dark:border-slate-700">
+            <div className="flex items-center gap-2 text-sm font-bold text-slate-600 dark:text-yellow-400 mb-4 uppercase tracking-widest bg-white dark:bg-slate-800 px-4 py-1 rounded-full shadow-sm border border-gray-100 dark:border-slate-700">
                 <Calendar size={14} />
                 {data.date}
             </div>
