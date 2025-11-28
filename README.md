@@ -66,3 +66,37 @@ npm install
 
 # 4. Run the development server
 npm run dev
+Open http://localhost:3000 with your browser to see the result.
+
+📂 Project Structure
+Bash
+
+.
+├── app/                # Next.js App Router (Pages & Layouts)
+├── components/         # Reusable UI Components (Navbar, Cards, Graph)
+├── content/blog/       # MDX Blog Posts (Your articles go here)
+├── data/               # Static Data (Projects list, Skills)
+├── lib/                # Utilities (Graph parsing, Blog logic)
+├── public/             # Static Assets (Images, Icons)
+└── styles/             # Global CSS & Tailwind Config
+🔧 Customization Guide
+Want to make this portfolio yours? Here is how to edit the content:
+
+Edit Projects: Go to data/projects.ts. Add or remove objects to update the Portfolio section.
+
+Write Blogs: Create a new .mdx file in content/blog/. Use the frontmatter format:
+
+YAML
+
+---
+title: "My New Post"
+date: "2025-01-01"
+excerpt: "Short description..."
+tags: ["React", "Life"]
+---
+Change Skills: Go to components/SkillsSection.tsx to adjust skill levels and categories.
+
+SEO & Metadata: Update app/layout.tsx with your own name and description.
+
+🤝 Contributing
+Contributions, issues, and feature requests are welcome! Feel free to check the issues page.
