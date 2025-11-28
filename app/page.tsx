@@ -8,6 +8,7 @@ import Reveal from '@/components/Reveal';
 import WaveDivider from '@/components/WaveDivider';
 import HeroTypewriter from '@/components/HeroTypewriter';
 import TiltCard from '@/components/TiltCard';
+import TechMarquee from '@/components/TechMarquee';
 
 export default function Home() {
   const recentPosts = getSortedPostsData();
@@ -48,7 +49,7 @@ export default function Home() {
           className="text-white dark:text-slate-800 transition-colors duration-120"
         />
       </section>
-
+<TechMarquee />
       {/* SECTION 2: ABOUT */}
       <section id="about" className="py-24 bg-white dark:bg-slate-800 relative transition-colors duration-200">
         <div className="container mx-auto px-6 grid md:grid-cols-2 gap-10 items-center relative z-10">

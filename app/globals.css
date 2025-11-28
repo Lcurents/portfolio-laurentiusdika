@@ -1,8 +1,8 @@
 @import "tailwindcss";
-@variant dark (&:where(.dark, .dark *));
-@theme {
 
-  --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
   /* --- Primary Brand Colors --- */
   --color-brand-yellow: #FCD34D;
   --color-brand-primary: #FBBF24;
@@ -17,86 +17,35 @@
   --color-cat-app: #10B981;
   --color-cat-game: #F97316;
 
-  /* --- Shadows (Gamified Style) --- */
+  /* --- Shadows --- */
   --shadow-game: 0 4px 0 0 rgba(0, 0, 0, 0.1);
   --shadow-game-hover: 0 6px 0 0 rgba(0, 0, 0, 0.1);
   
-  /* --- Fonts (Optional, jika ingin override) --- */
-  /* --font-sans: "Inter", sans-serif; */
+  /* --- Fonts --- */
+  --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+
+  /* --- ANIMASI CUSTOM (Tailwind v4 Style) --- */
+  /* 1. Daftarkan nama animasinya */
+  --animate-scroll: scroll 20s linear infinite;
+
+  /* 2. Daftarkan keyframes-nya */
+  @keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
 }
 
-/* Reset CSS dasar agar tampilan konsisten 
-   (Tailwind v4 biasanya sudah otomatis, tapi ini jaga-jaga)
-*/
+/* Reset CSS */
 :root {
   background-color: var(--color-brand-light);
   color: var(--color-brand-dark);
 }
 
-/* ... kode sebelumnya biarkan saja ... */
-
-/* Tambahkan di baris paling bawah */
+/* Pattern Backgrounds */
 .bg-dots {
   background-image: radial-gradient(#cbd5e1 2px, transparent 2px);
   background-size: 30px 30px;
 }
-
-.bg-grid-pattern {
-  background-size: 40px 40px;
-  background-image: linear-gradient(to right, #e2e8f0 1px, transparent 1px),
-    linear-gradient(to bottom, #e2e8f0 1px, transparent 1px);
-}
-
-@layer utilities {
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
-  .no-scrollbar {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-  }
-}
-
-html, body {
-  scrollbar-width: none !important;  /* Firefox */
-  -ms-overflow-style: none !important;  /* IE and Edge */
-  overflow-x: hidden; /* Mencegah scroll ke samping tidak sengaja */
-}
-
-/* 2. Sembunyikan untuk Chrome, Safari, dan Opera */
-html::-webkit-scrollbar, 
-body::-webkit-scrollbar {
-  display: none !important;
-  width: 0 !important;
-  height: 0 !important;
-  background: transparent !important;
-}
-
-.dark {
-  /* Background jadi Gelap (Slate-950) */
-  --color-brand-light: #020617; 
-  
-  /* Teks jadi Putih Terang (Slate-50) */
-  --color-brand-dark: #F8FAFC;  
-
-  /* Kita sesuaikan warna kategori agar lebih neon di background gelap */
-  --color-cat-pixel: #22d3ee;
-  --color-cat-anime: #f87171;
-  --color-cat-realis: #c084fc;
-  --color-cat-web: #60a5fa;
-  --color-cat-app: #34d399;
-  --color-cat-game: #fb923c;
-  
-  /* Shadow juga perlu disesuaikan agar terlihat di gelap (Glow effect) */
-  --shadow-game: 0 4px 0 0 rgba(255, 255, 255, 0.1); 
-  --shadow-game-hover: 0 6px 0 0 rgba(255, 255, 255, 0.2);
-}
-
-.bg-dots {
-  background-image: radial-gradient(#cbd5e1 2px, transparent 2px);
-  background-size: 30px 30px;
-}
-/* Saat gelap, titiknya jadi warna gelap (Slate-800) */
 .dark .bg-dots {
   background-image: radial-gradient(#1e293b 2px, transparent 2px);
 }
@@ -106,9 +55,47 @@ body::-webkit-scrollbar {
   background-image: linear-gradient(to right, #e2e8f0 1px, transparent 1px),
     linear-gradient(to bottom, #e2e8f0 1px, transparent 1px);
 }
-/* Saat gelap, garis gridnya jadi gelap */
 .dark .bg-grid-pattern {
   background-image: linear-gradient(to right, #1e293b 1px, transparent 1px),
     linear-gradient(to bottom, #1e293b 1px, transparent 1px);
 }
 
+/* Scrollbar Utilities */
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Global Scrollbar Hide */
+html, body {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+  overflow-x: hidden;
+}
+
+html::-webkit-scrollbar, 
+body::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+}
+
+/* Dark Mode Variables */
+.dark {
+  --color-brand-light: #020617; 
+  --color-brand-dark: #F8FAFC;  
+  --color-cat-pixel: #22d3ee;
+  --color-cat-anime: #f87171;
+  --color-cat-realis: #c084fc;
+  --color-cat-web: #60a5fa;
+  --color-cat-app: #34d399;
+  --color-cat-game: #fb923c;
+  --shadow-game: 0 4px 0 0 rgba(255, 255, 255, 0.1); 
+  --shadow-game-hover: 0 6px 0 0 rgba(255, 255, 255, 0.2);
+}

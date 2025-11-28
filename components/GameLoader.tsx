@@ -25,13 +25,13 @@ export default function GameLoader({ onFinish }: { onFinish: () => void }) {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(interval);
-          setTimeout(onFinish, 500); // Tunggu sebentar di 100% sebelum hilang
+          setTimeout(onFinish, 100); // Tunggu sebentar di 100% sebelum hilang
           return 100;
         }
         // Kecepatan random agar terlihat organik seperti loading beneran
-        return prev + Math.random() * 30; 
+        return prev + Math.random() * 40; 
       });
-    }, 200);
+    }, 100);
 
     return () => clearInterval(interval);
   }, [onFinish]);

@@ -11,6 +11,7 @@ import ScrollProgress from '@/components/ScrollProgress';
 import Navbar from '@/components/Navbar';
 import WaveDivider from '@/components/WaveDivider';
 import Reveal from '@/components/Reveal';
+import Comments from '@/components/Comments';
 
 export async function generateStaticParams() {
   const files = fs.readdirSync(path.join(process.cwd(), 'content/blog'));
@@ -100,7 +101,12 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                 ">
                     <MDXRemote source={content} components={{ BlogImage }} />
                 </div>
+                  <Comments />
 
+         {/* Footer Artikel */}
+         <div className="mt-12 text-center">
+            <p className="text-gray-400 italic">Terima kasih sudah membaca! Level Knowledge +1 🧠</p>
+         </div>
             </div>
         </Reveal>
 
