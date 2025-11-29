@@ -1,45 +1,58 @@
 ---
-title: "Building a Gamified Portfolio: Next.js & Neural Networks"
+title: "Membangun Gamified Portfolio: Next.js & Neural Network"
 date: "2025-11-29"
-excerpt: "Dibalik layar pembuatan website portfolio interaktif dengan fitur Graph View ala Obsidian dan desain Sci-Fi."
+excerpt: "Proses pembuatan portfolio interaktif bergaya Sci‑Fi dengan visualisasi graph untuk menampilkan hubungan antar konten."
+author: "Laurents Dika"
+cover: "/images/blog/portfolio-graph.jpg"
 tags: ["Next.js", "Design", "Tutorial"]
 ---
 
-Sebagai seorang developer, portfolio adalah "Markas Besar" kita. Tapi jujur saja, kebanyakan portfolio developer itu membosankan: hanya daftar link dan teks statis.
+Sebagai developer, portfolio adalah lebih dari sekadar daftar proyek: ini alat untuk menceritakan proses, keputusan desain, dan nilai Anda sebagai pembuat.
 
-Saya ingin sesuatu yang berbeda. Saya ingin website yang terasa seperti **Video Game Sci-Fi** atau **Dashboard Pesawat Ruang Angkasa**.
+Di artikel ini saya menjelaskan pendekatan yang saya gunakan untuk membangun sebuah "Gamified Portfolio": struktur teknis singkat, fitur utama (termasuk visualisasi graph), dan beberapa keputusan desain yang membuat pengalaman pengunjung lebih interaktif.
 
-Maka, lahirlah proyek ini: Sebuah **Gamified Portfolio** yang dibangun dengan teknologi web modern.
+{/* Table of contents untuk navigasi cepat */}
 
-## 🛠️ The Tech Stack (Inventory)
+- Ringkasan (TL;DR)
+- Teknologi & Arsitektur
+- Implementasi utama (Graph, ResizeObserver, Interaksi)
+- Cara menjalankan proyek secara lokal
+- Kesimpulan
 
-Untuk membangun "senjata" ini, saya memilih stack yang fokus pada performa dan interaktivitas:
+## TL;DR
 
-* **Framework:** Next.js 15 (App Router)
-* **Styling:** Tailwind CSS v4 (Engine baru yang super cepat)
-* **Animation:** Framer Motion (Untuk transisi halus)
-* **Visualization:** React Force Graph (Untuk fitur Neural Network)
-* **Content:** MDX (Markdown + React)
+- Tujuan: membuat portfolio yang terasa seperti antarmuka Sci‑Fi, interaktif, dan membantu pembaca menemukan hubungan antar konten.
+- Output: Next.js + Tailwind + MDX + React Force Graph, dengan UX yang mengutamakan visualisasi dan micro‑interaction.
 
-## 🧠 Fitur Unggulan: The Neural Network
+## Teknologi & Arsitektur
 
-Inspirasi terbesar saya datang dari *Obsidian* (aplikasi catatan). Saya ingin pengunjung tidak hanya membaca satu artikel, tapi melihat **hubungan** antar artikel.
+Ringkasan teknologi yang dipakai:
 
-Saya membangun sistem **Graph View** yang memvisualisasikan setiap artikel blog sebagai "Node" (Titik) dan menghubungkan mereka jika saling berkaitan.
+- Framework: Next.js 15 (App Router)
+- Styling: Tailwind CSS v4
+- Animasi: Framer Motion
+- Visualisasi: React Force Graph (Graph / Network View)
+- Konten: MDX (Markdown + React)
 
-<BlogImage 
-  src="/images/blog/portfolio-graph.jpg" 
-  alt="Tampilan Neural Network Graph" 
-  caption="Tampilan Hero Section dengan Neural Network yang interaktif."
+Arsitektur singkat: konten ditulis di MDX, diproses oleh `next-mdx-remote`, dan dirender di halaman blog. Visualisasi graph dijalankan di client-side untuk menjaga performa server.
+
+## Implementasi utama
+
+### Visualisasi Graph
+
+Graph memetakan artikel sebagai node dan menghubungkannya berdasarkan tag, referensi, atau kemiripan topik. Ini membuat pengunjung mudah menemukan konteks antar tulisan.
+
+<BlogImage
+  src="/images/blog/tampilangraph.png"
+  alt="Tampilan Neural Network Graph"
+  caption="Graph interaktif yang menampilkan hubungan antar konten."
 />
 
-Tantangan terberatnya adalah membuat grafik ini responsif dan tidak menutupi teks. Solusinya?
+### Menjaga grafik responsif
 
-1.  Menggunakan **Split View Layout** (Teks di kiri, Graph di kanan).
-2.  Menambahkan **ResizeObserver** agar grafik selalu menyesuaikan ukuran layar secara real-time.
+Untuk memastikan graph menyesuaikan ukuran saat container berubah, saya menggunakan `ResizeObserver` di komponen client yang merender canvas/graph. Contoh singkat (pada komponen React):
 
 ```tsx
-// Cuplikan kode ResizeObserver untuk Graph
 useEffect(() => {
   const resizeObserver = new ResizeObserver((entries) => {
     for (const entry of entries) {
@@ -49,28 +62,19 @@ useEffect(() => {
       }
     }
   });
-  // ...
+
+  if (containerRef.current) resizeObserver.observe(containerRef.current);
+
+  return () => resizeObserver.disconnect();
 }, []);
 ```
-🎴 3D Tilt Cards & Physics
-Agar terasa "taktil" (bisa disentuh), saya tidak membiarkan kartu project diam begitu saja. Saya menggunakan efek 3D Parallax Tilt.
 
-Saat mouse bergerak di atas kartu, kartu tersebut akan miring mengikuti posisi kursor dan memancarkan efek kilau (glare).
+Penjelasan singkat: daftarkan observer pada elemen container (mis. div yang membungkus canvas). Saat ukuran berubah, setDimension akan memperbarui ukuran graph sehingga layout tetap rapi.
 
-<BlogImage src="/images/blog/portfolio-cards.jpg" alt="3D Tilt Cards" caption="Kartu Project yang bereaksi terhadap gerakan mouse." />
+### Interaksi & Visual Details
 
-⚡ Laser Beam Scroll & Detail Kecil
-Detail adalah kunci nuansa "Game". Saya menambahkan beberapa Easter Eggs dan Micro-interactions:
+- 3D Tilt Cards: kartu proyek merespons posisi kursor dengan efek parallax dan glare.
+- Micro‑animations: hover dan transition halus dengan Framer Motion.
+- Easter eggs: kombinasi tombol (mis. Konami code) untuk menambahkan kejutan kecil.
 
-Laser Beam Scroll: Scrollbar browser standar saya sembunyikan dan diganti dengan garis laser energi di sisi kanan layar.
-
-Loading Screen: Efek tirai (Curtain Effect) saat pindah halaman, lengkap dengan tips loading acak.
-
-Konami Code: Coba ketik ↑ ↑ ↓ ↓ ← → ← → B A di keyboard Anda. Lihat apa yang terjadi! 🤫
-
-Kesimpulan
-Membangun portfolio ini bukan sekadar coding, tapi juga tentang Storytelling. Saya ingin pengunjung merasakan experience, bukan sekadar membaca CV.
-
-Proyek ini Open Source! Anda bisa melihat kodenya di GitHub saya.
-
-Level Complete! Onto the next quest. 🚀
+<BlogImage src="/images/blog/tilt3d.png" alt="3D Tilt Cards" caption="Kartu proyek bereaksi terhadap gerakan kursor." />

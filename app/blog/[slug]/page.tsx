@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ArrowLeft, Calendar, Tag } from 'lucide-react'; // Tambah icon agar manis
 import BlogImage from '@/components/BlogImage';
+import CodeBlock from '@/components/CodeBlock';
 // Import komponen hiasan kita
 import ScrollProgress from '@/components/ScrollProgress';
 import Navbar from '@/components/Navbar';
@@ -99,7 +100,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                     prose-img:rounded-2xl prose-img:shadow-game
                     prose-code:text-pink-500 prose-code:bg-gray-100 dark:prose-code:bg-slate-800 dark:prose-code:text-pink-400 prose-code:px-1 prose-code:rounded
                 ">
-                    <MDXRemote source={content} components={{ BlogImage }} />
+                    <MDXRemote source={content} components={{ BlogImage, pre: CodeBlock }} />
                 </div>
                   <Comments />
 
