@@ -1,0 +1,76 @@
+---
+title: "Building a Gamified Portfolio: Next.js & Neural Networks"
+date: "2025-11-29"
+excerpt: "Dibalik layar pembuatan website portfolio interaktif dengan fitur Graph View ala Obsidian dan desain Sci-Fi."
+tags: ["Next.js", "Design", "Tutorial"]
+---
+
+Sebagai seorang developer, portfolio adalah "Markas Besar" kita. Tapi jujur saja, kebanyakan portfolio developer itu membosankan: hanya daftar link dan teks statis.
+
+Saya ingin sesuatu yang berbeda. Saya ingin website yang terasa seperti **Video Game Sci-Fi** atau **Dashboard Pesawat Ruang Angkasa**.
+
+Maka, lahirlah proyek ini: Sebuah **Gamified Portfolio** yang dibangun dengan teknologi web modern.
+
+## 🛠️ The Tech Stack (Inventory)
+
+Untuk membangun "senjata" ini, saya memilih stack yang fokus pada performa dan interaktivitas:
+
+* **Framework:** Next.js 15 (App Router)
+* **Styling:** Tailwind CSS v4 (Engine baru yang super cepat)
+* **Animation:** Framer Motion (Untuk transisi halus)
+* **Visualization:** React Force Graph (Untuk fitur Neural Network)
+* **Content:** MDX (Markdown + React)
+
+## 🧠 Fitur Unggulan: The Neural Network
+
+Inspirasi terbesar saya datang dari *Obsidian* (aplikasi catatan). Saya ingin pengunjung tidak hanya membaca satu artikel, tapi melihat **hubungan** antar artikel.
+
+Saya membangun sistem **Graph View** yang memvisualisasikan setiap artikel blog sebagai "Node" (Titik) dan menghubungkan mereka jika saling berkaitan.
+
+<BlogImage 
+  src="/images/blog/portfolio-graph.jpg" 
+  alt="Tampilan Neural Network Graph" 
+  caption="Tampilan Hero Section dengan Neural Network yang interaktif."
+/>
+
+Tantangan terberatnya adalah membuat grafik ini responsif dan tidak menutupi teks. Solusinya?
+
+1.  Menggunakan **Split View Layout** (Teks di kiri, Graph di kanan).
+2.  Menambahkan **ResizeObserver** agar grafik selalu menyesuaikan ukuran layar secara real-time.
+
+```tsx
+// Cuplikan kode ResizeObserver untuk Graph
+useEffect(() => {
+  const resizeObserver = new ResizeObserver((entries) => {
+    for (const entry of entries) {
+      const { width, height } = entry.contentRect;
+      if (width > 0 && height > 0) {
+        setDimensions({ w: width, h: height });
+      }
+    }
+  });
+  // ...
+}, []);
+```
+🎴 3D Tilt Cards & Physics
+Agar terasa "taktil" (bisa disentuh), saya tidak membiarkan kartu project diam begitu saja. Saya menggunakan efek 3D Parallax Tilt.
+
+Saat mouse bergerak di atas kartu, kartu tersebut akan miring mengikuti posisi kursor dan memancarkan efek kilau (glare).
+
+<BlogImage src="/images/blog/portfolio-cards.jpg" alt="3D Tilt Cards" caption="Kartu Project yang bereaksi terhadap gerakan mouse." />
+
+⚡ Laser Beam Scroll & Detail Kecil
+Detail adalah kunci nuansa "Game". Saya menambahkan beberapa Easter Eggs dan Micro-interactions:
+
+Laser Beam Scroll: Scrollbar browser standar saya sembunyikan dan diganti dengan garis laser energi di sisi kanan layar.
+
+Loading Screen: Efek tirai (Curtain Effect) saat pindah halaman, lengkap dengan tips loading acak.
+
+Konami Code: Coba ketik ↑ ↑ ↓ ↓ ← → ← → B A di keyboard Anda. Lihat apa yang terjadi! 🤫
+
+Kesimpulan
+Membangun portfolio ini bukan sekadar coding, tapi juga tentang Storytelling. Saya ingin pengunjung merasakan experience, bukan sekadar membaca CV.
+
+Proyek ini Open Source! Anda bisa melihat kodenya di GitHub saya.
+
+Level Complete! Onto the next quest. 🚀
