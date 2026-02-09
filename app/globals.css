@@ -1,132 +1,26 @@
 @import "tailwindcss";
 
-@variant dark (&:where(.dark, .dark *));
-
-@theme {
-  /* --- Primary Brand Colors --- */
-  --color-brand-yellow: #FCD34D;
-  --color-brand-primary: #FBBF24;
-  --color-brand-dark: #1F2937;
-  --color-brand-light: #FAFAF9;
-
-  /* --- Category Colors --- */
-  --color-cat-pixel: #06B6D4;
-  --color-cat-anime: #EF4444;
-  --color-cat-realis: #A855F7;
-  --color-cat-web: #3B82F6;
-  --color-cat-app: #10B981;
-  --color-cat-game: #F97316;
-
-  /* --- Shadows --- */
-  --shadow-game: 0 4px 0 0 rgba(0, 0, 0, 0.1);
-  --shadow-game-hover: 0 6px 0 0 rgba(0, 0, 0, 0.1);
-  
-  /* --- Fonts --- */
-  --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
-
-  /* --- ANIMASI CUSTOM (Tailwind v4 Style) --- */
-  /* 1. Daftarkan nama animasinya */
-  --animate-scroll: scroll 20s linear infinite;
-
-  /* 2. Daftarkan keyframes-nya */
-  @keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-}
-
-/* Reset CSS */
 :root {
-  background-color: var(--color-brand-light);
-  color: var(--color-brand-dark);
+  --background: #ffffff;
+  --foreground: #171717;
 }
 
-/* Pattern Backgrounds */
-.bg-dots {
-  background-image: radial-gradient(#cbd5e1 2px, transparent 2px);
-  background-size: 30px 30px;
-}
-.dark .bg-dots {
-  background-image: radial-gradient(#1e293b 2px, transparent 2px);
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
 }
 
-.bg-grid-pattern {
-  background-size: 40px 40px;
-  background-image: linear-gradient(to right, #e2e8f0 1px, transparent 1px),
-    linear-gradient(to bottom, #e2e8f0 1px, transparent 1px);
-}
-.dark .bg-grid-pattern {
-  background-image: linear-gradient(to right, #1e293b 1px, transparent 1px),
-    linear-gradient(to bottom, #1e293b 1px, transparent 1px);
-}
-
-/* Scrollbar Utilities */
-@layer utilities {
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
-  .no-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
   }
 }
 
-/* Global Scrollbar Hide */
-html, body {
-  scrollbar-width: none !important;
-  -ms-overflow-style: none !important;
-  overflow-x: hidden;
-}
-
-html::-webkit-scrollbar, 
-body::-webkit-scrollbar {
-  display: none !important;
-  width: 0 !important;
-  height: 0 !important;
-  background: transparent !important;
-}
-
-/* Dark Mode Variables */
-.dark {
-  --color-brand-light: #020617; 
-  --color-brand-dark: #F8FAFC;  
-  --color-cat-pixel: #22d3ee;
-  --color-cat-anime: #f87171;
-  --color-cat-realis: #c084fc;
-  --color-cat-web: #60a5fa;
-  --color-cat-app: #34d399;
-  --color-cat-game: #fb923c;
-  --shadow-game: 0 4px 0 0 rgba(255, 255, 255, 0.1); 
-  --shadow-game-hover: 0 6px 0 0 rgba(255, 255, 255, 0.2);
-}
-
-/* Code block styling for MDX */
-pre, code {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Segoe UI Mono", "Helvetica Neue", monospace;
-}
-
-pre {
-  background: color-mix(in srgb, var(--color-brand-dark) 8%, transparent);
-  padding: 1rem;
-  border-radius: 0.5rem;
-  overflow: auto;
-  font-size: 0.9rem;
-  line-height: 1.4;
-  margin: 0.75rem 0;
-  box-shadow: var(--shadow-game);
-}
-
-code {
-  background: transparent;
-  padding: 0.1rem 0.25rem;
-  border-radius: 0.25rem;
-}
-
-.dark pre {
-  background: rgba(2,6,23,0.65);
-}
-
-/* Improve long inline code wrapping */
-pre code {
-  white-space: pre;
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
 }
