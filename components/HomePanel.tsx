@@ -1,0 +1,11 @@
+import React from "react";
+
+const HomePanel = () => {
+  return (
+    <div className="mx-auto px-4 bg-white/60 backdrop-blur-md rounded-[2.5rem] shadow-xl">
+      <h1>About</h1>
+    </div>
+  );
+};
+
+export default HomePanel;
