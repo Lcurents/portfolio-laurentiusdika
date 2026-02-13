@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Hero from "@/components/Hero";
+import HomePanel from "@/components/HomePanel";
 
 export default function Home() {
   return (
@@ -13,7 +15,6 @@ export default function Home() {
           priority
         />
         <h1>Under Development</h1>
-        <p>Estimated: 25 Feb 2026</p>
       </main>
     </div>
   );
