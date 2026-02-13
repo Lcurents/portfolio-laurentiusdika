@@ -13,6 +13,7 @@ export default function Home() {
           priority
         />
         <h1>Under Development</h1>
+        <p>Estimated: 25 Feb 2026</p>
       </main>
     </div>
   );
